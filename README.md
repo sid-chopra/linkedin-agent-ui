@@ -1,70 +1,171 @@
-# Getting Started with Create React App
+# 📱 LinkedIn Agent UI
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A clean, mobile-friendly React web app that acts as the frontend dashboard for the [LinkedIn Post Agent](https://github.com/sid-chopra/linkedin-agent) backend. Generate, edit, and send LinkedIn post drafts to your inbox — all from your phone or browser.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## ✨ Features
 
-### `npm start`
+- 🎯 Pick from 3 topic themes or go fully random
+- 💡 Add an optional hint to guide the AI
+- ✨ Generate a LinkedIn post powered by Groq AI + live news context
+- 📝 Edit the post directly in the browser before sending
+- 🔄 Retry to get a fresh version if you don't like it
+- 📧 Send the final draft to your email in one tap
+- 📱 Fully mobile-friendly — works great on your phone browser
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🖥️ Preview
 
-### `npm test`
+```
+┌─────────────────────────┐
+│  LinkedIn Post Agent 🤖  │
+│  Generate your weekly post│
+├─────────────────────────┤
+│  Choose a Topic          │
+│  [🅰️ Angular] [🤖 AI]   │
+│  [🧭 Leadership] [🎲 Random]│
+├─────────────────────────┤
+│  Add a Hint (optional)   │
+│  [ type here...        ] │
+├─────────────────────────┤
+│  [ ✨ Generate Post ]    │
+├─────────────────────────┤
+│  Your Post — Edit freely │
+│  [ post appears here   ] │
+│  [🔄 Retry] [📧 Send]   │
+└─────────────────────────┘
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## 🛠️ Tech Stack
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+| Layer | Tool |
+|---|---|
+| Framework | React 18 |
+| Styling | SCSS |
+| HTTP Client | Axios |
+| Deployment | Vercel |
+| Backend | [LinkedIn Agent API](https://github.com/sid-chopra/linkedin-agent) |
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 📁 Project Structure
 
-### `npm run eject`
+```
+linkedin-agent-ui/
+├── public/
+│   └── index.html
+├── src/
+│   ├── App.js         # Main component — all UI logic lives here
+│   ├── App.scss       # All styles with SCSS variables
+│   └── index.js       # React entry point
+├── .gitignore
+├── package.json
+└── README.md
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+---
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 🚀 Getting Started Locally
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### 1. Clone the repo
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```bash
+git clone https://github.com/sid-chopra/linkedin-agent-ui.git
+cd linkedin-agent-ui
+```
 
-## Learn More
+### 2. Install dependencies
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+npm install
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### 3. Update the API URL
 
-### Code Splitting
+Open `src/App.js` and make sure the `API_URL` points to your deployed backend:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```javascript
+const API_URL = 'https://your-railway-backend-url.up.railway.app'
+```
 
-### Analyzing the Bundle Size
+### 4. Start the app
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```bash
+npm start
+```
 
-### Making a Progressive Web App
+App runs at `http://localhost:3000`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+---
 
-### Advanced Configuration
+## 🌐 Deploying to Vercel
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### 1. Push to GitHub
 
-### Deployment
+```bash
+git init
+git add .
+git commit -m "initial commit"
+git remote add origin https://github.com/sid-chopra/linkedin-agent-ui.git
+git branch -M main
+git push -u origin main
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### 2. Deploy on Vercel
 
-### `npm run build` fails to minify
+- Go to [vercel.com](https://vercel.com) and sign up with GitHub
+- Click **"Add New Project"**
+- Import your `linkedin-agent-ui` repository
+- Leave all settings as default — Vercel auto-detects React
+- Click **"Deploy"**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Your app will be live at:
+```
+https://linkedin-agent-ui.vercel.app
+```
+
+### 3. Update CORS on backend
+
+Once deployed, update your Railway backend's `server.js` to allow your Vercel URL:
+
+```javascript
+app.use(cors({
+  origin: [
+    'http://localhost:3000',
+    'https://linkedin-agent-ui.vercel.app'
+  ]
+}))
+```
+
+---
+
+## 🔗 Related
+
+- 🔧 **Backend repo** — [linkedin-agent](https://github.com/sid-chopra/linkedin-agent-ui) — Node.js + Express + Groq + Resend + Railway
+
+---
+
+## 🗺️ Roadmap
+
+- [x] Topic picker
+- [x] Hint input
+- [x] AI post generation
+- [x] Editable post area
+- [x] Retry functionality
+- [x] Send to email
+- [ ] Post history screen
+- [ ] Settings screen — change email, topics
+- [ ] Reply to email → auto-post to LinkedIn
+
+---
+
+## 👤 Author
+
+**Sidhant**
+Technical Lead — Frontend & AI Tooling)
+
+---
